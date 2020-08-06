@@ -11,10 +11,12 @@ class FirstActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first)
 
-        moveToMainBtn.setOnClickListener {
+        goBackToMainBtn.setOnClickListener {
 //            MainActivity 이동
-            val myIntent = Intent(this,MainActivity::class.java)
-            startActivity(myIntent)
+            finish() //액티비티종료
+//            onBackPressed() //뒤로가기
+//            val myIntent = Intent(this,MainActivity::class.java)
+//            startActivity(myIntent)
 
         }
 
