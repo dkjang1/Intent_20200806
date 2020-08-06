@@ -12,8 +12,20 @@ class MainActivity : AppCompatActivity() {
 
         moveToFirstBtn.setOnClickListener {
 //            FirstActivity 이동
-            val myIntent = Intent(this,FirstActivity::class.java)
+            val myIntent = Intent(this, FirstActivity::class.java)
             startActivity(myIntent)
+
+        }
+
+        moveToSecondBtn.setOnClickListener {
+
+//            SecondActivity 메시지전달+이동
+            val inputMessage = messageEdt.text.toString()
+            val myIntent = Intent(this, SecondActivity::class.java)
+//            생성된 Intent 변수에 이름표를 붙인상태로 첨부
+            myIntent.putExtra("message", inputMessage)
+            startActivity(myIntent)
+
 
         }
 
