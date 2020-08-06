@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        messageEdt.setText("안녕하세요!~")
         moveToSecondBtn.setOnClickListener {
 
 //            SecondActivity 메시지전달+이동

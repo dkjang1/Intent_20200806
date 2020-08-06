@@ -10,10 +10,16 @@
     tools:context=".SecondActivity">
 
     <TextView
-        android:id="@+id/messageTxt"
+        android:id="@+id/receivedMessageTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="전달받은 내용출력란"
         android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/goBackToMainBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="메인으로 돌아가기" />
 
 </LinearLayout>
