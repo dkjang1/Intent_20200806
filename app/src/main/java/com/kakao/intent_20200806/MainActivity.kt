@@ -1,5 +1,6 @@
 package com.kakao.intent_20200806
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-//    1000 이라는 숫자가 닉넹임을 변경하는 요청이라는것을 인식하기 어렵다
+    //    1000 이라는 숫자가 닉넹임을 변경하는 요청이라는것을 인식하기 어렵다
 //    멤버변수 지정
     val REQ_FOR_NICKNAME = 1000
 
@@ -41,4 +42,25 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    //    결과를 알아올때 실행되는 함수 - 오버라이딩
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+//        requestCode를 우선검사 => 뭘가지러 닉네임을 가지러 다녀온건지 확인
+        if (requestCode == REQ_FOR_NICKNAME) {
+//            닉네임 변경은 확인을 눌렀을때만 하고 싶다
+//            확인이 눌렀는지? resultCode의 값이 RESULT_OK와 같은지
+            if (resultCode == Activity.RESULT_OK) {
+
+//                돌아올때 들고온 새 닉네임을 txt에 반영 : data
+                val newNickName = data?.getStringExtra("newNickName")
+
+                nickNameTxt.text = newNickName
+
+            }
+        }
+
+    }
+
 }
