@@ -35,9 +35,45 @@
         android:text="닉네임을 입력하세요" />
 
     <Button
+        android:id="@+id/changeNickNameBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="닉네임 변경" />
 
+    <EditText
+        android:id="@+id/phoneNumEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="전화/문자를 연결하는 번호입력"
+        android:inputType="phone" />
 
+    <Button
+        android:id="@+id/dialBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="전화걸기 (DAIL)" />
+
+    <Button
+        android:id="@+id/callBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="전화걸기 (CALL)" />
+
+    <Button
+        android:id="@+id/smsBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="문자보내기 (SENDTO)" />
+
+    <Button
+        android:id="@+id/naverLinkBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="네이버로 가기" />
+
+    <Button
+        android:id="@+id/kakaoPlayStoreLinkBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="카카오톡 앱 다운로드 링크" />
 </LinearLayout>

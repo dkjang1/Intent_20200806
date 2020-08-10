@@ -2,6 +2,7 @@ package com.kakao.intent_20200806
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_edit_nick_name.*
@@ -16,6 +17,42 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        kakaoPlayStoreLinkBtn.setOnClickListener {
+            val myUri = Uri.parse("market://details?id=com.kakao.talk")
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+        }
+
+        naverLinkBtn.setOnClickListener {
+            val myUri = Uri.parse("https://www.naver.com")
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+        }
+
+        smsBtn.setOnClickListener {
+            val inputPhoneNum = phoneNumEdt.text.toString()
+            val myUri = Uri.parse("smsto:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
+//            문자전송화면이동시 미리문구를 적어서 보내자
+//            myIntent를 가지고 갈때
+            myIntent.putExtra("sms_body","이앱을 플레이스토어에서 설치해 주세요.")
+            startActivity(myIntent)
+        }
+
+        callBtn.setOnClickListener {
+            val inputPhoneNum = phoneNumEdt.text.toString()
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_CALL, myUri)
+            startActivity(myIntent)
+        }
+
+        dialBtn.setOnClickListener {
+            val inputPhoneNum = phoneNumEdt.text.toString()
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_DIAL, myUri)
+            startActivity(myIntent)
+        }
 
         moveToFirstBtn.setOnClickListener {
 //            FirstActivity 이동
@@ -39,6 +76,7 @@ class MainActivity : AppCompatActivity() {
 //            고유숫자를 임의로 지정 -> 멤버변수로 가독성 향상
 //            startActivityForResult(myIntent, 1000)
             startActivityForResult(myIntent, REQ_FOR_NICKNAME)
+
         }
 
     }
